@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.*;
 
-public class Publication  {
+public abstract class Publication  {
     protected int publicationYear;
     protected String publisher;
     protected LocalDate publicationDate;
@@ -40,5 +40,9 @@ public class Publication  {
     }
 
     public Publication() {
+    }
+
+    public void display(){
+
     }
 }

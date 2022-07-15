@@ -26,16 +26,13 @@ public class Validator {
 
     public String validateIsbn(){
         String isbn = scanner.nextLine();
-//        if(true){
-//            String regex = "(\\d\\-)$";
-//            if(isbn.matches(regex))
-//                return isbn;
-//            else System.out.println(false);
-//            System.out.println(isbn);
-//        }
-//        System.out.println("Enter Isbn (10-17)");
-//        return validateIsbn();
-        return isbn;
+        String regex = "^\\-[0-9\\-]+$";
+        if (isbn.matches(regex) && isbn.length()>9 && isbn.length()<18){
+            System.out.println(isbn);
+            return isbn;
+        }
+        System.out.println("You can enter [0-9] and '-' (ex: 123-3-21-1234) and len=[10-17]");
+        return validateIsbn();
     }
 
     public int validateInt(){
@@ -71,7 +68,7 @@ public class Validator {
         do {
 //            System.out.print("Author:");
             authors.add(Validator.getInstance().validateString());
-            System.out.print("Continue (Y/N):");
+            System.out.print("Continue (Y):");
             check = Validator.getInstance().validateString();
         }while (check.equals("Y"));
         return authors;
