@@ -1,9 +1,11 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
-public class Magazine extends Publication{
+public class Magazine extends Publication {
     private String author;
     private int volume;
     private int edition;
@@ -52,5 +54,10 @@ public class Magazine extends Publication{
     }
 
     public Magazine() {
+    }
+
+//    @Override
+    public int compare(Magazine o1) {
+        return o1.getVolume()-this.getVolume();
     }
 }

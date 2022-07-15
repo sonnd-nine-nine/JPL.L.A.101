@@ -100,6 +100,7 @@ public class Menu {
 
     public Book addAuthor(Book book){
         System.out.println("Add new author");
+        System.out.print("Enter author: ");
         String author = Validator.getInstance().validateString();
         Set<String> authors = book.getAuthor();
         for(String s:authors){
@@ -113,6 +114,6 @@ public class Menu {
     }
 
     public void showTop10Magazine(){
-
+        System.out.println("Top 10 Magazine by volume");
     }
 }

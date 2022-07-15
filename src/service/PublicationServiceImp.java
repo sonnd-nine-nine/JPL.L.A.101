@@ -6,6 +6,8 @@ import model.Publication;
 import util.Validator;
 import view.Menu;
 
+import java.lang.reflect.Array;
+import java.net.CookieHandler;
 import java.util.*;
 
 public class PublicationServiceImp implements PublicationService{
@@ -37,19 +39,22 @@ public class PublicationServiceImp implements PublicationService{
         return true;
     }
 
-//    @Override
-//    public void showTop10Magazine() {
-//        for (Publication i: publications){
-//            Magazine magazine = (Magazine) i;
-//            Collections.sort((Magazine)i, new Comparator<Magazine>() {
-//                @Override
-//                public int compare(Magazine o1, Magazine o2) {
-//                    if (o1.getVolume() < o2.getVolume()) return 1;
-//                    return 0;
-//                }
-//            });
-//        }
-//    }
+    @Override
+    public void showTop10Magazine() {
+        List<Magazine> magazines = Validator.getInstance().getListMagazine(publications);
+        Menu.getInstance().showTop10Magazine();
+        if(magazines.size()<10){
+            System.out.println(magazines);
+        }
+        else{
+            int count = 0;
+            for (Magazine i:magazines){
+                count++;
+                System.out.println(i);
+                if(count==10) return;
+            }
+        }
+    }
 
     @Override
     public Book searchBookByIsbn() {
@@ -112,4 +117,16 @@ public class PublicationServiceImp implements PublicationService{
                 System.out.println("must choose one func!!");
         }
     }
+
+    @Override
+    public Magazine sortMagazine(List<Magazine> magazine) {
+        Collections.sort(magazine, new Comparator<Magazine>() {
+            @Override
+            public int compare(Magazine o1, Magazine o2) {
+                return o2.getVolume()-o1.getVolume();
+            }
+        });
+        return (Magazine) magazine;
+    }
+
 }
