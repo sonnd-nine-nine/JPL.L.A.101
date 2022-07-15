@@ -2,8 +2,9 @@ package model;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.*;
 
-public class Publication {
+public class Publication  {
     protected int publicationYear;
     protected String publisher;
     protected LocalDate publicationDate;

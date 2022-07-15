@@ -32,13 +32,24 @@ public class PublicationServiceImp implements PublicationService{
 
     @Override
     public boolean addAuthor() {
-        return false;
+        Book book = searchBookByIsbn();
+        book = Menu.getInstance().addAuthor(book);
+        return true;
     }
 
-    @Override
-    public void showTop10Magazine() {
-
-    }
+//    @Override
+//    public void showTop10Magazine() {
+//        for (Publication i: publications){
+//            Magazine magazine = (Magazine) i;
+//            Collections.sort((Magazine)i, new Comparator<Magazine>() {
+//                @Override
+//                public int compare(Magazine o1, Magazine o2) {
+//                    if (o1.getVolume() < o2.getVolume()) return 1;
+//                    return 0;
+//                }
+//            });
+//        }
+//    }
 
     @Override
     public Book searchBookByIsbn() {
@@ -81,5 +92,24 @@ public class PublicationServiceImp implements PublicationService{
             }
         }
         return null;
+    }
+
+    @Override
+    public void searchBook() {
+        int choose = Menu.getInstance().menuSearchBook();
+        switch (choose){
+            case 1:
+//                String isbn = Menu.getInstance().searchBookByIsbn();
+                System.out.println(searchBookByIsbn());
+                break;
+            case 2:
+                System.out.println(searchBookByAuthor());
+                break;
+            case 3:
+                System.out.println(searchBookByPublisher());
+                break;
+            default:
+                System.out.println("must choose one func!!");
+        }
     }
 }

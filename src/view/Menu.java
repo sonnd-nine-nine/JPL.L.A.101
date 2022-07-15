@@ -90,6 +90,14 @@ public class Menu {
         return Validator.getInstance().validateString();
     }
 
+    public int menuSearchBook(){
+        System.out.println("Search book:\n" +
+                "1. by Isbn\n" +
+                "2. by Author\n" +
+                "3. by publisher");
+        return Validator.getInstance().validateInt();
+    }
+
     public Book addAuthor(Book book){
         System.out.println("Add new author");
         String author = Validator.getInstance().validateString();

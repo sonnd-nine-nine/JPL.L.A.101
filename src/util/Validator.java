@@ -23,13 +23,16 @@ public class Validator {
 
     public String validateIsbn(){
         String isbn = scanner.nextLine();
-        if(isbn.length()>9 && isbn.length()<18){
-            String regex = "^([0-9][0-9-][0-9])$";
-            if(isbn.matches(regex))
-                return isbn;
-        }
-        System.out.println("Enter Isbn (10-17)");
-        return validateIsbn();
+//        if(true){
+//            String regex = "(\\d\\-)$";
+//            if(isbn.matches(regex))
+//                return isbn;
+//            else System.out.println(false);
+//            System.out.println(isbn);
+//        }
+//        System.out.println("Enter Isbn (10-17)");
+//        return validateIsbn();
+        return isbn;
     }
 
     public int validateInt(){
