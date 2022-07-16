@@ -26,12 +26,13 @@ public class Validator {
 
     public String validateIsbn(){
         String isbn = scanner.nextLine();
-        String regex = "^\\-[0-9\\-]+$";
-        if (isbn.matches(regex) && isbn.length()>9 && isbn.length()<18){
+        String regex = "[0-9\\-]+$";
+        System.out.println(isbn.length());
+        if (isbn.matches(regex)){
             System.out.println(isbn);
             return isbn;
         }
-        System.out.println("You can enter [0-9] and '-' (ex: 123-3-21-1234) and len=[10-17]");
+        System.out.println("You can enter [0-9] and '-' (ex: 123-3-21-1234)");
         return validateIsbn();
     }
 
